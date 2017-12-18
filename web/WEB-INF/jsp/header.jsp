@@ -55,7 +55,7 @@
                         <span class="icon-bar"></span>
                     </a>
                     <div class="navbar-inner">
-                        <a class="brand" href="index.html"><img src="<c:url value="/resourcess/themes/images/logo.png"/>" alt="Bootsshop"/></a>
+                        <a class="brand" href="${pageContext.request.contextPath}/welcome"><img src="<c:url value="/resourcess/themes/images/logo3.png"/>" alt="Bootsshop"/></a>
                         <form class="form-inline navbar-search" method="post" action="products.html" >
                             <input id="srchFld" class="srchTxt" type="text" />
 

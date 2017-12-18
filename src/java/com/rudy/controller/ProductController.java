@@ -43,7 +43,7 @@ public class ProductController {
         
     }
     
-    @RequestMapping(value = "/{id}")
+    @RequestMapping(value = "/detail/{id}")
     public String detailProduct(@PathVariable("id")Integer id,Model model)
     {
         Product pd = ps.findProductbyId(id);
