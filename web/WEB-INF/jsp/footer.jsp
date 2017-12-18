@@ -13,21 +13,19 @@
         <div class="row">
             <div class="span3">
                 <h5>ACCOUNT</h5>
-                <a href="login.html">YOUR ACCOUNT</a>
-                <a href="login.html">PERSONAL INFORMATION</a>
-                <a href="login.html">ORDER HISTORY</a>
+                <a href="#login">YOUR ACCOUNT</a>
+                <a href="#login">PERSONAL INFORMATION</a>
+                <a href="#login">ORDER HISTORY</a>
             </div>
             <div class="span3">
                 <h5>INFORMATION</h5>
-                <a href="contact.html">CONTACT</a>  
-                <a href="register.html">REGISTRATION</a>
+                <a href="#contact">CONTACT</a>  
+                <a href="#regist">REGISTRATION</a>
             </div>
             <div class="span3">
-                <h5>KATEGORI</h5>
-                <a href="#">MOTOR & SEPEDA</a> 
+                <h5>KATEGORI</h5> 
                 <a href="#">HANDPHONE</a>  
                 <a href="#">KAMERA</a> 
-                <a href="#">SPORTS</a> 
             </div>
             <div id="socialMedia" class="span3 pull-right">
                 <h5>SOCIAL MEDIA </h5>

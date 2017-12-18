@@ -11,6 +11,7 @@ import com.rudy.model.Product;
 import com.rudy.model.UserOnCube;
 import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,15 +38,16 @@ public class CheckOutController {
     
     
     //bikin ini semalem klo error berarti ini ubah lagi
-    @RequestMapping("/check/${idUser}/${idProduct}/${qty}/${sumprice}")
-    public String checkoutCart(Model model,@RequestParam("user")UserOnCube uoc,@RequestParam("product")Product product,
-            @RequestParam("quantity")Integer quantity,@RequestParam("sumPrice")Double sumPrice)
+    @RequestMapping("/check")
+    public String checkoutCart(HttpSession session,Model model)
     {
-        Orders orders = new Orders();
-        orders.setDatePurchase(new Date());
-        orders.setProduct(product);
-        orders.setUseroncube(uoc);
-        os.saveCheckOut(orders);
+//        Orders orders = new Orders();
+//        orders.setDatePurchase(new Date());
+//        orders.setProduct(product);
+//        orders.setUseroncube(uoc);
+//        os.saveCheckOut(orders);
+        session.removeAttribute("cart");
+
         return "redirect:/welcome";
     }
     

@@ -24,7 +24,7 @@
       <link rel="apple-touch-icon-precomposed" href="<c:url value="/resourcess/themes/images/ico/apple-touch-icon-57-precomposed.png"/>">
 <style type="text/css" id="enject"></style>
 
-<table class="table table-responsive table-bordered">
+<table class="table table-responsive table-bordered" style="margin-bottom: 150px;">
     <tr>
         <td><img src="<c:url value="/resourcess/themes/images/products/${product.productImg}"/>"/></td>
     </tr>

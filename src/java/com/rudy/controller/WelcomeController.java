@@ -7,12 +7,12 @@ package com.rudy.controller;
 
 import com.rudy.dao.ProductService;
 import com.rudy.dao.UserService;
-import com.rudy.model.CheckOutBean;
 import com.rudy.model.LoginBean;
+import com.rudy.model.Product;
 import com.rudy.model.RegisterFormBean;
 import com.rudy.model.UserOnCube;
 import com.rudy.utils.PasswordDigest;
-import java.text.DecimalFormat;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -90,4 +91,13 @@ public class WelcomeController {
         return "redirect:/welcome";
     }
 
+    
+    @RequestMapping(value = "/search")
+    public String searchProduct(@RequestParam("keyword")String keyword,Model model)
+    {
+        List<Product> products = ps.findProductByKategori(keyword);
+        model.addAttribute("listproduct",products);
+        return "search";
+    }
+    
 }

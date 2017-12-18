@@ -5,12 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
@@ -46,10 +47,45 @@
 
                                         </c:forEach>
                                         <tr>
-                                                <td colspan="3">Grand Total</td><td colspan="2">${z}</td>
+                                            <td colspan="3">Grand Total</td><td colspan="2">${z}</td>
                                         </tr>
                                     </table>
-                                   
+
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+                                </center>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div id="showProduct" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <br/>
+                                <center><h3><Span class="icon-shopping-cart icon-white"></span> CartList</h3></center>
+                            </div>
+                            <div class="modal-body">
+                                <center> 
+                                    <table class="table table-responsive table-bordered table-striped table-hover">
+                                        <tr>
+                                            <td>Nama Barang </td><td><form:input path="productName" name=""></form:input></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Harga Barang </td><td><form:input path="productPrice" name=""></form:input></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Deskripsi</td><td><form:input path="productDescription" name=""></form:input></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Image Product </td><td></td>
+                                        </tr>
+                                    </table>
+
                                     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 
                                 </center>

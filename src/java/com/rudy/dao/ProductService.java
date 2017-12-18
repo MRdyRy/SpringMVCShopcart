@@ -48,4 +48,12 @@ public class ProductService {
         List<Product> prods = query.getResultList();
         return prods;
     }
+    
+    public List<Product> findProductByKategori(String keyword){
+        em = emf.createEntityManager();
+        Query query = em.createQuery("select p from Product p WHERE UPPER(p.productName) LIKE '%'||UPPER(:keyword)||'%'");
+        query.setParameter("keyword",keyword);
+        List<Product> product = query.getResultList();
+        return product;
+    }
 }

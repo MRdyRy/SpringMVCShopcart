@@ -53,6 +53,7 @@ public class UserService {
         return usroc;
     }
     
+    
     public UserOnCube findUserById(int id)
     {
         em = emf.createEntityManager();

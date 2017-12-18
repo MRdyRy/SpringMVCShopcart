@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib  prefix="v" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,7 +44,7 @@
                                 <c:set var="qw" value="${qw + pr.quantity}"></c:set>
                             </c:forEach>
 
-                            <span class="btn btn-mini">Rp. ${s}</span>
+                            <span class="btn btn-mini">Rp. <v:formatNumber value="${s}"/></span>
                             <a href="#cartList" role="button" data-toggle="modal"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ ${qw} ] Items in cart </span> </a> 
                         </div>
                     </div>
@@ -57,15 +58,10 @@
                     </a>
                     <div class="navbar-inner">
                         <a class="brand" href="${pageContext.request.contextPath}/welcome"><img src="<c:url value="/resourcess/themes/images/logo3.png"/>" alt="Bootsshop"/></a>
-                        <form class="form-inline navbar-search" method="post" action="products.html" >
-                            <input id="srchFld" class="srchTxt" type="text" />
+                        <form class="form-inline navbar-search" method="post" action="${pageContext.request.contextPath}/welcome/search" >
+                            <input id="srchFld" class="srchTxt" type="text" name="keyword" />
 
-                            <select class="srchTxt">
-                                <option>All</option>
-                                <option>HANDPHONE </option>
-                                <option>KAMERA</option>
-                            </select> 
-                            <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
+                            <a href="${pageContext.request.contextPath}/search?"><button type="submit" id="submitButton" class="btn btn-primary">Go</button></a>
                         </form>
                         <ul id="topMenu" class="nav pull-right">
                             <c:if test="${empty sessionScope.user}">
@@ -115,6 +111,7 @@
 
 
                                 <li class="">
+                                   
                                     <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
                                     <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
                                         <div class="modal-header">
