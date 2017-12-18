@@ -40,10 +40,11 @@
                         <div class="pull-right">
                             <c:forEach var="pr" items="${sessionScope.cart.cartlist.values()}">
                                 <c:set var="s" value="${s+ pr.product.productPrice * pr.quantity}"></c:set>
+                                <c:set var="qw" value="${qw + pr.quantity}"></c:set>
                             </c:forEach>
 
                             <span class="btn btn-mini">Rp. ${s}</span>
-                            <a href="#cartList" role="button" data-toggle="modal"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ ${sessionScope.cart.cartlist.size()} ] Items in cart </span> </a> 
+                            <a href="#cartList" role="button" data-toggle="modal"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ ${qw} ] Items in cart </span> </a> 
                         </div>
                     </div>
                 </div>

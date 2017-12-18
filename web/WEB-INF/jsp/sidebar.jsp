@@ -13,11 +13,13 @@
 <!-- Sidebar ================================================== -->
 <div id="sidebar" class="span3">
     <div class="well well-small">
-        <a id="myCart" href="product_summary.html"><a href="#cartList" role="button" data-toggle="modal"><img src="<c:url value="/resourcess/themes/images/ico-cart.png"/>" alt="cart">${sessionScope.cart.cartlist.size()} Items   
+        <c:forEach var="pr" items="${sessionScope.cart.cartlist.values()}">
+            <c:set var="s" value="${s+ pr.product.productPrice * pr.quantity}"></c:set>
+            <c:set var="mn" value="${mn+ pr.quantity}"></c:set>
+        </c:forEach>
+        <a id="myCart" href="#"><a href="#cartList" role="button" data-toggle="modal"><img src="<c:url value="/resourcess/themes/images/ico-cart.png"/>" alt="cart">&nbsp;${mn} Items   
                 <span class="badge badge-warning pull-right">
-                    <c:forEach var="pr" items="${sessionScope.cart.cartlist.values()}">
-                        <c:set var="s" value="${s+ pr.product.productPrice * pr.quantity}"></c:set>
-                    </c:forEach>
+
                     Rp. ${s}
                 </span>
             </a>
@@ -38,7 +40,7 @@
             </ul>
         </li>
 
-        <li><a href="#">All Products</a></li>
+        <li><a href="${pageContext.request.contextPath}">All Products</a></li>
     </ul>
     <br/>
     <c:forEach var="i" begin="0" end="2" step="1" items="${listproduct}">
