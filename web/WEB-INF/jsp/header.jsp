@@ -36,7 +36,13 @@
         <div id="header">
             <div class="container">
                 <div id="welcomeLine" class="row">
-                    <div class="span6">Welcome!</div>
+                    <c:if test="${sessionScope.user.levelUser == 1}">
+                        <div class="span6">Welcome Admin !</div>
+                    </c:if>
+                    <c:if test="${sessionScope.user.levelUser == 2 }">
+                            <div class="span6">Welcome!</div>
+                    </c:if>
+                    
                     <div class="span6">
                         <div class="pull-right">
                             <c:forEach var="pr" items="${sessionScope.cart.cartlist.values()}">

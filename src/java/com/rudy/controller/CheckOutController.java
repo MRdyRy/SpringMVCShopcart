@@ -6,18 +6,20 @@
 package com.rudy.controller;
 
 import com.rudy.dao.OrdersService;
+import com.rudy.model.Cart;
+import com.rudy.model.Items;
 import com.rudy.model.Orders;
-import com.rudy.model.Product;
-import com.rudy.model.UserOnCube;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpSession;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -39,16 +41,24 @@ public class CheckOutController {
     
     //bikin ini semalem klo error berarti ini ubah lagi
     @RequestMapping("/check")
-    public String checkoutCart(HttpSession session,Model model)
+    public String checkoutCart(HttpSession session,Model model,ModelMap mod)
     {
-//        Orders orders = new Orders();
-//        orders.setDatePurchase(new Date());
-//        orders.setProduct(product);
-//        orders.setUseroncube(uoc);
-//        os.saveCheckOut(orders);
-        session.removeAttribute("cart");
+        Cart cartliast = (Cart) session.getAttribute("cart");
+        double totalHarga =0.0;
+        Map<Integer,Items> cartLast = new HashMap<>();
+        for (Map.Entry<Integer, Items> entry : cartliast.getCartlist().entrySet()) {
+            cartLast.put(Integer.valueOf(entry.getKey()),new Items(entry.getValue().getQuantity(),entry.getValue().getProduct()));
+            totalHarga+= entry.getValue().getProduct().getProductPrice() * entry.getValue().getQuantity();
+            mod.put("data",cartLast);
+            System.out.println(cartLast.get(entry.getKey()).getProduct().getProductName());
+        }
+        
+         session.setAttribute("cartssss", cartLast);
+         session.setAttribute("cartlast",cartliast);
+         session.setAttribute("total", totalHarga);
+         session.removeAttribute("cart");
 
-        return "redirect:/welcome";
+        return "redirect:/checkout";
     }
     
     @RequestMapping(value="/history/{id}")

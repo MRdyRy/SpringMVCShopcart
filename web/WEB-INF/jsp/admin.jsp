@@ -73,19 +73,19 @@
                                 <center> 
                                     <table class="table table-responsive table-bordered table-striped table-hover">
                                         <tr>
-                                            <td>Nama Barang </td><td><form:input path="productName" name=""></form:input></td>
+                                            <td>Nama Barang </td><td><input type="text" required name="productName" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Harga Barang </td><td><form:input path="productPrice" name=""></form:input></td>
+                                            <td>Harga Barang </td><td><input type="text" required name="productPrice"></td>
                                         </tr>
                                         <tr>
-                                            <td>Deskripsi</td><td><form:input path="productDescription" name=""></form:input></td>
+                                            <td>Deskripsi</td><td><textarea name="Description" required></textarea></td>
                                         </tr>
                                         <tr>
-                                            <td>Image Product </td><td></td>
+                                            <td>Image Product </td><td><input type="file" name="imageProduct"/></td>
                                         </tr>
                                     </table>
-
+                                    <button class="btn btn-primary">Save</button>
                                     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 
                                 </center>
